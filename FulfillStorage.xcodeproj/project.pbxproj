@@ -8,22 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		F3A92DDE237E3C7700C456D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A92DDD237E3C7700C456D7 /* AppDelegate.swift */; };
-		F3A92DE0237E3C7700C456D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A92DDF237E3C7700C456D7 /* SceneDelegate.swift */; };
 		F3A92DE2237E3C7700C456D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A92DE1237E3C7700C456D7 /* ViewController.swift */; };
 		F3A92DE5237E3C7700C456D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A92DE3237E3C7700C456D7 /* Main.storyboard */; };
 		F3A92DE7237E3C7900C456D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3A92DE6237E3C7900C456D7 /* Assets.xcassets */; };
 		F3A92DEA237E3C7900C456D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A92DE8237E3C7900C456D7 /* LaunchScreen.storyboard */; };
+		F3A92DF4237E417100C456D7 /* DataAllocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A92DF1237E417100C456D7 /* DataAllocator.swift */; };
+		F3A92DF5237E417100C456D7 /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A92DF2237E417100C456D7 /* FileStorage.swift */; };
+		F3A92DF6237E417100C456D7 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A92DF3237E417100C456D7 /* UserDefaultsStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F3A92DDA237E3C7700C456D7 /* FullfilStorage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FullfilStorage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3A92DDA237E3C7700C456D7 /* FulfillStorage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FulfillStorage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A92DDD237E3C7700C456D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F3A92DDF237E3C7700C456D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F3A92DE1237E3C7700C456D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F3A92DE4237E3C7700C456D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F3A92DE6237E3C7900C456D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3A92DE9237E3C7900C456D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3A92DEB237E3C7900C456D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3A92DF1237E417100C456D7 /* DataAllocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataAllocator.swift; sourceTree = "<group>"; };
+		F3A92DF2237E417100C456D7 /* FileStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
+		F3A92DF3237E417100C456D7 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +44,7 @@
 		F3A92DD1237E3C7700C456D7 = {
 			isa = PBXGroup;
 			children = (
-				F3A92DDC237E3C7700C456D7 /* FullfilStorage */,
+				F3A92DDC237E3C7700C456D7 /* FulfillStorage */,
 				F3A92DDB237E3C7700C456D7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,31 +52,33 @@
 		F3A92DDB237E3C7700C456D7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F3A92DDA237E3C7700C456D7 /* FullfilStorage.app */,
+				F3A92DDA237E3C7700C456D7 /* FulfillStorage.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F3A92DDC237E3C7700C456D7 /* FullfilStorage */ = {
+		F3A92DDC237E3C7700C456D7 /* FulfillStorage */ = {
 			isa = PBXGroup;
 			children = (
 				F3A92DDD237E3C7700C456D7 /* AppDelegate.swift */,
-				F3A92DDF237E3C7700C456D7 /* SceneDelegate.swift */,
 				F3A92DE1237E3C7700C456D7 /* ViewController.swift */,
+				F3A92DF1237E417100C456D7 /* DataAllocator.swift */,
+				F3A92DF2237E417100C456D7 /* FileStorage.swift */,
+				F3A92DF3237E417100C456D7 /* UserDefaultsStorage.swift */,
 				F3A92DE3237E3C7700C456D7 /* Main.storyboard */,
 				F3A92DE6237E3C7900C456D7 /* Assets.xcassets */,
 				F3A92DE8237E3C7900C456D7 /* LaunchScreen.storyboard */,
 				F3A92DEB237E3C7900C456D7 /* Info.plist */,
 			);
-			path = FullfilStorage;
+			path = FulfillStorage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F3A92DD9237E3C7700C456D7 /* FullfilStorage */ = {
+		F3A92DD9237E3C7700C456D7 /* FulfillStorage */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F3A92DEE237E3C7900C456D7 /* Build configuration list for PBXNativeTarget "FullfilStorage" */;
+			buildConfigurationList = F3A92DEE237E3C7900C456D7 /* Build configuration list for PBXNativeTarget "FulfillStorage" */;
 			buildPhases = (
 				F3A92DD6237E3C7700C456D7 /* Sources */,
 				F3A92DD7237E3C7700C456D7 /* Frameworks */,
@@ -82,9 +88,9 @@
 			);
 			dependencies = (
 			);
-			name = FullfilStorage;
+			name = FulfillStorage;
 			productName = FullfilStorage;
-			productReference = F3A92DDA237E3C7700C456D7 /* FullfilStorage.app */;
+			productReference = F3A92DDA237E3C7700C456D7 /* FulfillStorage.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +108,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F3A92DD5237E3C7700C456D7 /* Build configuration list for PBXProject "FullfilStorage" */;
+			buildConfigurationList = F3A92DD5237E3C7700C456D7 /* Build configuration list for PBXProject "FulfillStorage" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +121,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F3A92DD9237E3C7700C456D7 /* FullfilStorage */,
+				F3A92DD9237E3C7700C456D7 /* FulfillStorage */,
 			);
 		};
 /* End PBXProject section */
@@ -138,9 +144,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3A92DF6237E417100C456D7 /* UserDefaultsStorage.swift in Sources */,
+				F3A92DF4237E417100C456D7 /* DataAllocator.swift in Sources */,
 				F3A92DE2237E3C7700C456D7 /* ViewController.swift in Sources */,
 				F3A92DDE237E3C7700C456D7 /* AppDelegate.swift in Sources */,
-				F3A92DE0237E3C7700C456D7 /* SceneDelegate.swift in Sources */,
+				F3A92DF5237E417100C456D7 /* FileStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,13 +293,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = FullfilStorage/Info.plist;
+				INFOPLIST_FILE = FulfillStorage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yifei-zhou.FullfilStorage";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yifei-zhou.FulfillStorage";
+				PRODUCT_NAME = FulfillStorage;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -302,13 +311,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = FullfilStorage/Info.plist;
+				INFOPLIST_FILE = FulfillStorage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yifei-zhou.FullfilStorage";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yifei-zhou.FulfillStorage";
+				PRODUCT_NAME = FulfillStorage;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -317,7 +327,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F3A92DD5237E3C7700C456D7 /* Build configuration list for PBXProject "FullfilStorage" */ = {
+		F3A92DD5237E3C7700C456D7 /* Build configuration list for PBXProject "FulfillStorage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F3A92DEC237E3C7900C456D7 /* Debug */,
@@ -326,7 +336,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F3A92DEE237E3C7900C456D7 /* Build configuration list for PBXNativeTarget "FullfilStorage" */ = {
+		F3A92DEE237E3C7900C456D7 /* Build configuration list for PBXNativeTarget "FulfillStorage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F3A92DEF237E3C7900C456D7 /* Debug */,
