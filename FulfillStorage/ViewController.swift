@@ -86,45 +86,48 @@ class ViewController: UITableViewController {
         let megas = infos[1].detail
         let kilos = infos[1].detail
         let alertTitle = "Store"
+
+        func fileStorage(unit: DataAllocator.Unit, size: Int, frenquency: Int) {
+            do {
+                try FileStorage.fileStorage(unit: unit, size: size, frequency: frenquency)
+                readCapacity(shouldShowAlert: false)
+            } catch {
+                print(error.localizedDescription)
+                showConfirmation(title: alertTitle, message: error.localizedDescription)
+            }
+        }
+
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        let indicator = UIActivityIndicatorView(style: .gray)
+        indicator.center = view.center
+        indicator.startAnimating()
+        view.addSubview(indicator)
         DispatchQueue.global().async {
             if gigas > 0 {
                 for idx in 1...(gigas * 2) {
                     autoreleasepool {
-                        do {
-                            try FileStorage.fileStorage(unit: .megabytes, size: 512, frequency: idx)
-                            self.readCapacity(shouldShowAlert: false)
-                        } catch {
-                            print(error.localizedDescription)
-                            self.showConfirmation(title: alertTitle, message: error.localizedDescription)
-                        }
+                        fileStorage(unit: .megabytes, size: 512, frenquency: idx)
                     }
                 }
             }
             if megas > 0 {
                 for idx in 1...megas {
                     autoreleasepool {
-                        do {
-                            try FileStorage.fileStorage(unit: .megabytes, size: 1, frequency: idx)
-                            self.readCapacity(shouldShowAlert: false)
-                        } catch {
-                            print(error.localizedDescription)
-                            self.showConfirmation(title: alertTitle, message: error.localizedDescription)
-                        }
+                        fileStorage(unit: .megabytes, size: 1, frenquency: idx)
                     }
                 }
             }
             if kilos > 0 {
                 for idx in 1...kilos {
                     autoreleasepool {
-                        do {
-                            try FileStorage.fileStorage(unit: .kilobytes, size: 1, frequency: idx)
-                            self.readCapacity(shouldShowAlert: false)
-                        } catch {
-                            print(error.localizedDescription)
-                            self.showConfirmation(title: alertTitle, message: error.localizedDescription)
-                        }
+                        fileStorage(unit: .kilobytes, size: 1, frenquency: idx)
                     }
                 }
+            }
+            DispatchQueue.main.async {
+                indicator.removeFromSuperview()
+                indicator.stopAnimating()
+                UIApplication.shared.endIgnoringInteractionEvents()
             }
         }
     }
