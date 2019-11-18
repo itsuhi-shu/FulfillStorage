@@ -10,6 +10,8 @@ import UIKit
 
 struct DataAllocator {
 
+    typealias Byte = [UInt8]
+
     enum Unit: Int, CustomStringConvertible {
         case bits = 0
         case bytes
@@ -41,15 +43,15 @@ struct DataAllocator {
         self.unit = unit
     }
 
-    func allocateMemory(of size: Int) -> [UInt8] {
-        let buffer = [UInt8](repeating: 0,
-                             count: DataAllocator.size(of: size,
-                                                       from: unit,
-                                                       to: .bytes))
+    func allocateMemory(of size: Int) -> Byte {
+        let buffer = Byte(repeating: 0,
+                          count: DataAllocator.size(of: size,
+                                                    from: unit,
+                                                    to: .bytes))
         return buffer
     }
 
-    static func allocateMemory(of size: Int, unit: Unit) -> [UInt8] {
+    static func allocateMemory(of size: Int, unit: Unit) -> Byte {
         let allocator = DataAllocator(unit: unit)
         return allocator.allocateMemory(of: size)
     }
