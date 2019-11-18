@@ -18,6 +18,8 @@ class ViewController: UITableViewController {
     typealias ButtonAction = (title: String, action: () -> Void)
     var buttons: [ButtonAction]!
 
+    // MARK: - UI process
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,7 +29,35 @@ class ViewController: UITableViewController {
         readCapacity()
     }
 
-    func readCapacity(shouldShowAlert: Bool = true) {
+    private func showConfirmation(title: String, message: String?) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true)
+        }
+    }
+
+    private func display(capacity: Int64) {
+        let total = Int(capacity)
+        var remainder = total
+        let gigas = DataAllocator.size(of: remainder, from: .bytes, to: .gigabytes)
+        remainder -= DataAllocator.size(of: gigas, from: .gigabytes, to: .bytes)
+        let megas = DataAllocator.size(of: remainder, from: .bytes, to: .megabytes)
+        remainder -= DataAllocator.size(of: megas, from: .megabytes, to: .bytes)
+        let kilos = DataAllocator.size(of: remainder, from: .bytes, to: .kilobytes)
+        infos = [("Total", total), ("GB", gigas), ("MB", megas), ("KB", kilos)]
+        refreshInfos()
+    }
+
+    private func refreshInfos() {
+        DispatchQueue.main.async {
+            self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+        }
+    }
+
+    // MARK: - Business Process
+
+    private func readCapacity(shouldShowAlert: Bool = true) {
         DispatchQueue.global().async {
             let alertTitle = "Capacity"
             let fileURL = URL(fileURLWithPath:"/")
@@ -55,33 +85,7 @@ class ViewController: UITableViewController {
         }
     }
 
-    func showConfirmation(title: String, message: String?) {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-            self.present(alert, animated: true)
-        }
-    }
-
-    func display(capacity: Int64) {
-        let total = Int(capacity)
-        var remainder = total
-        let gigas = DataAllocator.size(of: remainder, from: .bytes, to: .gigabytes)
-        remainder -= DataAllocator.size(of: gigas, from: .gigabytes, to: .bytes)
-        let megas = DataAllocator.size(of: remainder, from: .bytes, to: .megabytes)
-        remainder -= DataAllocator.size(of: megas, from: .megabytes, to: .bytes)
-        let kilos = DataAllocator.size(of: remainder, from: .bytes, to: .kilobytes)
-        infos = [("Total", total), ("GB", gigas), ("MB", megas), ("KB", kilos)]
-        refreshInfos()
-    }
-
-    func refreshInfos() {
-        DispatchQueue.main.async {
-            self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
-        }
-    }
-
-    func fulfillStorage() {
+    private func fulfillStorage() {
         let gigas = infos[1].detail
         let megas = infos[1].detail
         let kilos = infos[1].detail
@@ -131,6 +135,8 @@ class ViewController: UITableViewController {
             }
         }
     }
+
+    // MARK: - TableView DataSource & Delegate
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
