@@ -87,8 +87,8 @@ class ViewController: UITableViewController {
 
     private func fulfillStorage() {
         let gigas = infos[1].detail
-        let megas = infos[1].detail
-        let kilos = infos[1].detail
+        let megas = infos[2].detail
+        let kilos = infos[3].detail
         let alertTitle = "Store"
 
         func fileStorage(unit: DataAllocator.Unit, size: Int, frenquency: Int) {
