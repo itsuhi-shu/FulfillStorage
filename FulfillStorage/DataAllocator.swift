@@ -66,7 +66,8 @@ struct DataAllocator {
         case (toUnit.rawValue + 1)...:
             return (*, multiplier(from: fromUnit, to: toUnit))
         default:
-            fatalError()
+            assertionFailure("unable to convert from \(fromUnit) to \(toUnit)")
+            return (*, 1)
         }
     }
 
@@ -74,7 +75,8 @@ struct DataAllocator {
         if fromUnit == toUnit { return 1 }
         guard fromUnit.rawValue > toUnit.rawValue,
             let lowerUnit = Unit(rawValue: fromUnit.rawValue - 1) else {
-            fatalError()
+                assertionFailure("unable to get multiplier from \(fromUnit) to \(toUnit)")
+                return 1
         }
         return 1024 * multiplier(from: lowerUnit, to: toUnit)
     }
